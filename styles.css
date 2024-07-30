@@ -916,3 +916,27 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.latest-videos-container {
+  position: relative;
+}
+
+.slick-prev {
+  left: -100px;
+}
+
+.slick-next {
+  right: -100px;
+}
+
+.slick-prev, .slick-next {
+  position: absolute !important;
+  top: 40%;
+  transform: translateY(-50%);
+  background: none; 
+  border: none; 
+  outline: none; 
+  width: auto; 
+  height: auto; 
+  z-index: 100; 
+}
