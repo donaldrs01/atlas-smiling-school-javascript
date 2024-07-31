@@ -1,3 +1,8 @@
+
+/* Latest Videos Carousel */
+
+
+
 $(document).ready(function() {
 
     function fetchAndDisplayLatestVideos() {
@@ -56,8 +61,13 @@ $(document).ready(function() {
     
     fetchAndDisplayLatestVideos();
 });
-    
-    /* function fetchAndDisplayTutorials() {
+
+
+
+/* Popular Tutorial Video Carousel */
+/*
+$(document).ready(function() {
+     function fetchAndDisplayTutorials() {
         $.ajax({
             url: "https://smileschool-api.hbtn.info/popular-tutorials",
             method: "GET",
@@ -69,12 +79,12 @@ $(document).ready(function() {
                 const tutorialCarousel = $("#popular-carousel");
 
                 response.forEach(function(data) {
-                    const card = $("<div>").addClass("card").append(
+                    const card = $("<div>").addClass("card mx-3").append(
                         $("<img>").addClass("card-img-top").attr("src", data.thumb_url),
                         $("<div>").addClass("card-img-overlay text-center").append(
                             $("<img>").addClass("mx-auto my-auto play-overlay").attr("src", "/images/play.png").attr("width", "55px")
                         ),
-                        $("<div>").addClass("card-main").append(
+                      $("<div>").addClass("card-main").append(
                             $("<h5>").addClass("card-title").text(data.title),
                             $("<p>").addClass("card-text").text(data["sub-title"]),
                             $("<div>").addClass("author-info d-flex align-items-center").append(
@@ -99,8 +109,8 @@ $(document).ready(function() {
                     slidesToScroll: 1,
                     autoplay: false,
                     arrows: true,
-                    prevArrow: "<button type='button' class='slick-prev'>Previous</button>",
-                    nextArrow: "<button type='button' class='slick-next'>Next</button>",
+                    prevArrow: $(".slick-prev"),
+                    nextArrow: $(".slick-next")
                 });
                 console.log("Carousel initialized..");
             },
@@ -116,62 +126,57 @@ $(document).ready(function() {
 });
 */
 
-
-    /* function fetchAndDisplayQuotes() {
+/* Quote / Testimonial Carousel (for homepage and pricing page) */
+/*
+$(document).ready(function() {
+    function fetchAndDisplayQuotes() {
         console.log("Fetching quotes...");
         $("#loader-quotes").show();
-        $("#quotes-carousel").hide();
-
+        $("#quotes-carousel").css({ "display": "none"});
         $.ajax({
             url: "https://smileschool-api.hbtn.info/quotes",
             method: "GET",
+            dataType: "json",
             success: function(quotes) {
-                console.log("Quotes received", quotes)
+                console.log("Quotes received:", quotes);
                 // Hide loader on success
                 $("#loader-quotes").hide();
-                const quotesContainer = $("#quotes-carousel");
-                quotesContainer.empty();
-            
-                quotes.forEach((quote, index) => {
+                const quotesCarousel = $("#quotes-carousel");
+                quotesCarousel.css({ "height": "400px"})
+
+                quotes.forEach((quote) => {
                     console.log("Processing quote:", quote);
-                    const quoteUnit = $("<div>")
-                        .addClass("carousel-item")
-                        .toggleClass("active", index===0)
-                        .append(
-                            $("<div>").addClass("row align-items-center")
-                            .append(
-                                $("<div>").addClass("col-12 col-lg-3 text-center")
-                                .append(
-                                    $("<img>").addClass("d-block mx-auto").attr("src", quote.pic_url)
+
+                    const quoteUnit = $("<div>").addClass("quote-item").append(
+                        $("<div>").addClass("row align-items-center").append(
+                            $("<div>").addClass("col-12 col-lg-3 text-center").append(
+                                $("<img>").addClass("d-block mx-auto").attr("src", quote.pic_url)
+                            )
+                        ).append(
+                            $("<div>").addClass("col-12 col-lg-9").append(
+                                $("<div>").addClass("quote-item-text").append(
+                                    $("<p>").addClass("text-white").html(`&ldquo;${quote.text}&rdquo;`),
+                                    $("<h4>").addClass("text-white").text(quote.name),
+                                    $("<span>").addClass("text-white").text(quote.title)
                                 )
                             )
-                            .append(
-                                $("<div>").addClass("col-12 col-lg-9")
-                                .append(
-                                    $("<div>").addClass("quote-text")
-                                    .append($("<p>").addClass("text-white").html(`&ldquo; ${quote.text} &rdquo;`))
-                                    .append($("<h4>").addClass("text-white").text(quote.name))
-                                    .append($("<span>").addClass("text-white").text(quote.title))
-                                )
-                            )
-                        );
-
-                    quotesContainer.append(quoteUnit);
-            });
-
-            setTimeout(function() {
-                quotesContainer.show().slick({
-                    infinite: true,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    autoplay: false,
-                    arrows: true,
-                    prevArrow: "<button type='button' class='slick-prev'>Previous</button>",
-                    nextArrow: "<button type='button' class='slick-next'>Next</button>",
+                        )
+                    );
+                    quotesCarousel.append(quoteUnit);
                 });
-                console.log("Carousel initialized..");
-            },100);
-            },
+
+                quotesCarousel.removeClass("d-none");
+
+                quotesCarousel.slick({                        
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        autoplay: false,
+                        arrows: true,
+                        prevArrow: $(".slick-prev"),
+                        nextArrow: $(".slick-next")
+                    });
+                    console.log("Carousel initialized..");
+                },
             error: function() {
                 console.error("Error with loading quotes");
                 alert("Error with loading quotes");
@@ -179,10 +184,9 @@ $(document).ready(function() {
             }
         });
     }
-
+    
     fetchAndDisplayQuotes();
+})
 
-});
-
-*/ 
+*/
 
