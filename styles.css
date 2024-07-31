@@ -229,27 +229,27 @@
             overflow: hidden;
         }
 
-        .quote-item img {
+        .quoteItem img {
             width: 160px;
             border-radius: 75px;
             margin-left: 10px;
         }
 
-        .quote-text {
+        .quoteText {
             padding-left: 53px;
         }
 
-        .quote-text p {
+        .quoteText p {
             font-size: 22px;
             line-height: 34px;
             margin-bottom: 22px;
         }
 
-        .quote-text h4 {
+        .quoteText h4 {
             font-size: 22px;
         }
 
-        .quote-text span {
+        .quoteText span {
             font-style: italic;
             font-size: 22px;
         }
@@ -894,11 +894,6 @@
   position: relative;
 }
 
-.quote-item {
-  display: block;
-  padding: 20px;
-}
-
 .popular-container {
   position: relative;
 }
@@ -936,4 +931,9 @@
   background: none; 
   border: none; 
   outline: none;
+  opacity: 0.7;
+}
+
+.slick-prev:before, .slick-next:before {
+  display: none;
 }
