@@ -2,6 +2,7 @@
 /* Latest Videos Carousel */
 
 
+/*
 
 $(document).ready(function() {
 
@@ -62,10 +63,12 @@ $(document).ready(function() {
     fetchAndDisplayLatestVideos();
 });
 
+*/
+
 
 
 /* Popular Tutorial Video Carousel */
-/*
+
 $(document).ready(function() {
      function fetchAndDisplayTutorials() {
         $.ajax({
@@ -124,7 +127,7 @@ $(document).ready(function() {
     
         fetchAndDisplayTutorials();
 });
-*/
+
 
 /* Quote / Testimonial Carousel (for homepage and pricing page) */
 /*

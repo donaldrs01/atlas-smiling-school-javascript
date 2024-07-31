@@ -937,26 +937,3 @@
   border: none; 
   outline: none;
 }
-
-/*
-
-.left-arrow, .right-arrow {
-  position: absolute !important;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  background: none; 
-  border: none; 
-  outline: none;
-  padding: 0;
-  margin: 0;
-}
-
-.left-arrow {
-  left: -100px;
-  top: -30px;
-}
-
-.right-arrow {
-  right: -100px;
-}
