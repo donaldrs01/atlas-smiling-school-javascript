@@ -902,38 +902,84 @@
   position: relative;
 }
 
-.slick-prev, .slick-next {
+.quote-arrow-left, .quote-arrow-right,
+.tutorial-arrow-left, .tutorial-arrow-right,
+.latest-arrow-left, .latest-arrow-right {
   position: absolute !important;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   z-index: 1;
-  background: none; 
-  border: none; 
+  background: none;
+  border: none;
   outline: none;
+}
+
+.quote-arrow-left, .tutorial-arrow-left, .latest-arrow-left {
+  left: -50px;
+}
+
+.quote-arrow-right, .tutorial-arrow-right, .latest-arrow-right {
+  right: -5px;
+}
+
+.quote-arrow-left img, .quote-arrow-right img,
+.tutorial-arrow-left img, .tutorial-arrow-right img,
+.latest-arrow-left img, .latest-arrow-right img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: none;
+  border: none;
+  outline: none;
+  opacity: 0.7;
   width: 40px;
   height: 40px;
 }
 
-.slick-prev img {
-  left: -40px;
-}
-
-.slick-next img {
-  right: -40px;
-}
-
-
-.slick-prev img, .slick-next img {
-  position: absolute !important;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  background: none; 
-  border: none; 
-  outline: none;
-  opacity: 0.7;
-}
-
 .slick-prev:before, .slick-next:before {
   display: none;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 70%; 
+    margin: 10px auto; 
+  }
+
+  .quote-arrow-left, .tutorial-arrow-left, .latest-arrow-left {
+    left: -10px; 
+  }
+
+  .quote-arrow-right, .tutorial-arrow-right, .latest-arrow-right {
+    right: 50px; 
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    width: 90%; 
+  }
+
+  img.card-img-top {
+    width: 70%;
+  }
+
+  .quote-arrow-left, .tutorial-arrow-left, .latest-arrow-left {
+    left: 60px;
+  }
+
+  .quote-arrow-right, .tutorial-arrow-right, .latest-arrow-right {
+    right: 100px;
+  }
+
+  .play-overlay {
+    width: 20px;
+    height: 80px;
+    opacity: 0.7;
+  }
+}
+
+.play-overlay {
+  margin-left: 30%;
 }
