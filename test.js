@@ -75,7 +75,7 @@ $(document).ready(function() {
                     const card = $("<div>").addClass("card mx-3").append(
                         $("<img>").addClass("card-img-top img-fluid mx-auto").attr("src", data.thumb_url),
                         $("<div>").addClass("card-img-overlay d-flex text-center").append(
-                            $("<img>").addClass("play-overlay position-absolute top-50 start-50 translate-middle").attr("src", "/images/play.png").attr("width", "55px")
+                            $("<img>").addClass("play-overlay position-absolute top-50 start-50 translate-middle").attr("src", "images/play.png").attr("width", "55px")
                         ),
                       $("<div>").addClass("card-main").append(
                             $("<h5>").addClass("card-title").text(data.title),
@@ -148,7 +148,7 @@ $(document).ready(function() {
                     const card = $("<div>").addClass("card mx-3").append(
                         $("<img>").addClass("card-img-top img-fluid mx-auto").attr("src", data.thumb_url),
                         $("<div>").addClass("card-img-overlay d-flex text-center").append(
-                            $("<img>").addClass("play-overlay position-absolute top-50 start-50 translate-middle").attr("src", "/images/play.png").attr("width", "55px")
+                            $("<img>").addClass("play-overlay position-absolute top-50 start-50 translate-middle").attr("src", "images/play.png").attr("width", "55px")
                         ),
                       $("<div>").addClass("card-main").append(
                             $("<h5>").addClass("card-title").text(data.title),
@@ -215,11 +215,10 @@ $(document).ready(function() {
                 const newDropdownItem = $(`<a class="dropdown-item" href="#" data-value="${topic}">${topic}</a>`);
                 topicDropdownMenu.append(newDropdownItem);
             });
-            
-            topicDropdownMenu.off("click", ".dropdown-item");
+
             topicDropdownMenu.on("click", ".dropdown-item", function(e) {
                 e.preventDefault();
-                const topic = $(this).data("value");
+                const topic = $(this).text();
                 $("#topicDropdown span").first().text(topic);
                 $("#topicDropdown").data("value", topic);
                 fetchAndDisplayCourses();
@@ -232,11 +231,10 @@ $(document).ready(function() {
                 const newDropdownItem = $(`<a class="dropdown-item" href="#" data-value="${sort}">${sort}</a>`);
                 sortDropdownMenu.append(newDropdownItem);
             });
-
-            sortDropdownMenu.off("click", ".dropdown-item");
+            
             sortDropdownMenu.on("click", ".dropdown-item", function(e) {
                 e.preventDefault();
-                const sort = $(this).data("value");
+                const sort = $(this).text();
                 $("#sortDropdown span").first().text(sort);
                 $("#sortDropdown").data("value", sort);
                 fetchAndDisplayCourses();
@@ -277,7 +275,7 @@ function fetchAndDisplayCourses() {
                 const card = $("<div>").addClass("col-12 col-md-4 col-lg-3 mb-4").append(
                     $("<img>").addClass("card-img-top img-fluid mx-auto").attr("src", course.thumb_url),
                     $("<div>").addClass("card-img-overlay d-flex text-center").append(
-                        $("<img>").addClass("play-overlay position-absolute top-50 start-50 translate-middle").attr("src", "/images/play.png").attr("width", "55px")
+                        $("<img>").addClass("play-overlay position-absolute top-50 start-50 translate-middle").attr("src", "images/play.png").attr("width", "55px")
                     ),
                     $("<div>").addClass("card-main").append(
                         $("<h5>").addClass("card-title").text(course.title),
@@ -309,43 +307,23 @@ fetchAndDisplayCourses();
 // Fetch and display courses on input change
 $('#search-input').on('input', fetchAndDisplayCourses);
 
-function bootUp() {
-
-    const path = window.location.pathname;
-    if (path.includes("index.html")) {
-        fetchAndDisplayQuotes();
-        fetchAndDisplayTutorials();
-        fetchAndDisplayLatestVideos();
-    } else if (path.includes("pricing.html")) {
-        fetchAndDisplayQuotes();
-    } else if (path.includes("courses.html")) {
-        courseFilters();
-    }
-}
-bootUp();
-});
-
+ /* Bootup function to determine path and appropriate function calls */
     
-    /* Bootup function to determine path and appropriate function calls */
-    /*
     function bootUp() {
         const path = window.location.pathname;
         const basePath = "/smileschool-java/";
 
-        if (path === basePath || path === `${basePath}index.html` || path === `${basePath}homepage.html`) {
+        if (path === basePath || path === `${basePath}index.html`) {
             fetchAndDisplayQuotes();
             fetchAndDisplayTutorials();
             fetchAndDisplayLatestVideos();
         } else if (path === `${basePath}pricing.html`) {
             fetchAndDisplayQuotes();
+        } else if (path === `${basePath}courses.html`) {
+            courseFilters();
+            fetchAndDisplayCourses();
         }
     }
-        
-
+    
     bootUp();
-    */
-
-
-
-
-
+});
