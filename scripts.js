@@ -1,4 +1,3 @@
-
 /* Quote Carousel */
 
 $(document).ready(function() {
