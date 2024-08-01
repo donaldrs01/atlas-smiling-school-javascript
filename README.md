@@ -1,5 +1,11 @@
 [Link to Hosted Website](https://donaldrs01.github.io/smileschool-java/)
 
+This project had us using a forker repository and replacing many of the static site elements with more dynamic ones. This included data-collection from an API to populate video and quote carousels with dynamic information. 
+
+While some styling was done using CSS, the majority was achieved using jQuery for dynamic manipulations and Bootstrap for consistent styling and layout.
+
+--- 
+
 # Holberton Smiling School (Bootstrap Project)
 
 These group of web pages were coded from scratch with the help of the Boostrap Framework and based on some design models given on Figma.
