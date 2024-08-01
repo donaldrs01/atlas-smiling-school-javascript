@@ -1,6 +1,6 @@
-[Link to Hosted Website](https://donaldrs01.github.io/smileschool-java/)
+# [Link to Hosted Website](https://donaldrs01.github.io/smileschool-java/)
 
-This project had us using a forker repository and replacing many of the static site elements with more dynamic ones. This included data-collection from an API to populate video and quote carousels with dynamic information. 
+This project had us using a forked repository of the infamous SmileSchool and replacing many of the static site elements with dynamic ones. This included data-collection from an API to populate video and quote carousels with dynamic information. 
 
 While some styling was done using CSS, the majority was achieved using jQuery for dynamic manipulations and Bootstrap for consistent styling and layout.
 
