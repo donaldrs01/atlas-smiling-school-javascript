@@ -1,4 +1,4 @@
-[Link to Hosted Website] (https://donaldrs01.github.io/smileschool-java/)
+[Link to Hosted Website](https://donaldrs01.github.io/smileschool-java/)
 
 # Holberton Smiling School (Bootstrap Project)
 
